@@ -11,10 +11,12 @@ end
 require_relative './ruby_coin/bitcoin'
 require_relative './ruby_coin/litecoin'
 require_relative './ruby_coin/peercoin'
+require_relative './ruby_coin/dogecoin'
 
 # RubyCoin.autoload :Bitcoin,  './ruby_coin/bitcoin'
 # RubyCoin.autoload :Litecoin, './ruby_coin/litecoin'
 # RubyCoin.autoload :Peercoin, './ruby_coin/peercoin'
+# RubyCoin.autoload :Dogecoin, './ruby_coin/dogecoin'
 
 
 # Monkeypatch OpenSSL for utility methods
