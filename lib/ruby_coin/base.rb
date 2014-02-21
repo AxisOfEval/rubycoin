@@ -12,7 +12,33 @@ module RubyCoin
 
     alias_method :secret, :private_key
 
+    def to_s
+      address
+    end
+
     protected
+      def hash160(hex)
+        Digest::RMD160.hexdigest(Digest::SHA256.digest([hex].pack('H*')))
+      end
+
+      def checksum(hex)
+        Digest::SHA256.hexdigest(
+          Digest::SHA256.digest(
+            [hex].pack('H*')
+        ))[0...8]
+      end
+
+      def number_to_base(number, alpha)
+        string, base = '', alpha.size
+        while(number >= base)
+          mod       = number % base
+          string    = alpha[mod,1] + string
+          number    = (number - mod)/base
+        end
+        alpha[number,1] + string
+      end
+
+    private
       def init_private_key
         @private_key = curve.private_key.to_hex
       end
@@ -29,16 +55,6 @@ module RubyCoin
       def nil_public_key
         @address    = nil
         @public_key = nil
-      end
-
-      def number_to_base(number, alpha)
-        string, base = '', alpha.size
-        while(number >= base)
-          mod       = number % base
-          string    = alpha[mod,1] + string
-          number    = (number - mod)/base
-        end
-        alpha[number,1] + string
       end
   end
 end
