@@ -1,5 +1,8 @@
+require 'forwardable'
+
 module RubyCoin
   class Base
+    extend Forwardable
     attr_accessor :curve, :private_key, :public_key
 
     def initialize(seed, *args)
@@ -12,8 +15,31 @@ module RubyCoin
 
     alias_method :secret, :private_key
 
+    def_delegator :curve, :_pubkey_version,  :public_key_version
+    def_delegator :curve, :_prikey_version,  :private_key_version
+
     def to_s
       address
+    end
+
+    def version_hash(hex)
+      public_key_version + hash160(hex)
+    end
+
+    def compressed?
+      false
+    end
+
+    def public_key
+      case compressed?
+      when true
+        # TODO: Optimize y-coord parity checking
+        curve.public_key.y.to_i(16).even? ?
+          '02' + curve.public_key.x.rjust(32, '0') :
+          '03' + curve.public_key.x.rjust(32, '0')
+      else
+        @public_key
+      end
     end
 
     protected

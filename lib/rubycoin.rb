@@ -19,10 +19,12 @@ module ::OpenSSL
     def to_hex; to_i.to_s(16).rjust(64, '0'); end
   end
 
+  class PKey::EC
+    attr_reader :_pubkey_version, :_prikey_version
+  end
+
   class PKey::EC::Point
     def to_hex; to_bn.to_i.to_s(16).rjust(130, '0'); end
-    # def x; [to_hex].pack('H*')[1..32].unpack("H*")[0]; end
-    # def y; [to_hex].pack('H*')[33..65].unpack("H*")[0]; end
     def x; to_hex[2..65];   end
     def y; to_hex[66..130]; end
   end
