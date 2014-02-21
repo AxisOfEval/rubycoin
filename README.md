@@ -1,5 +1,10 @@
 # RubyCoin
-RubyCoin **aims** to be the one library that rules them all crypto-currencies. Currently, only Bitcoin is supported. Adding support for other crypto-currencies is fairly simple and contributions and pull-requests are always welcome.
+RubyCoin **aims** to be the one library that rules them all crypto-currencies. Currently, only the following crypto-currencies are supported:
+
+  1. Bitcoin
+  2. Lotecoin
+
+However, adding support for other crypto-currencies is fairly simple and contributions and pull-requests are always welcome.
 
 ## Installation
 Installing the gem is trivial. It has extremely few dependencies besides OpenSSL.
