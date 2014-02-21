@@ -10,6 +10,7 @@ end
 
 RubyCoin.autoload :Bitcoin,  './ruby_coin/bitcoin'
 RubyCoin.autoload :Litecoin, './ruby_coin/litecoin'
+RubyCoin.autoload :Peercoin, './ruby_coin/peercoin'
 
 # Monkeypatch OpenSSL for utility methods
 module ::OpenSSL
