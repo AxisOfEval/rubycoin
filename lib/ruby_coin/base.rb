@@ -14,11 +14,11 @@ module RubyCoin
 
     protected
       def init_private_key
-        @private_key = curve.private_key.to_hex.rjust(64, '0')
+        @private_key = curve.private_key.to_hex
       end
 
       def init_public_key
-        @public_key = curve.public_key.to_hex.rjust(130, '0')
+        @public_key = curve.public_key.to_hex
       end
 
       def nil_private_key
