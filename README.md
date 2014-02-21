@@ -4,11 +4,11 @@ RubyCoin **aims** to be the one library that rules them all crypto-currencies. C
 ## Installation
 Installing the gem is trivial. It has extremely few dependencies besides OpenSSL.
 
-        `$ gem install rubycoin`
+        $ gem install rubycoin
 
 Or, if you are using bundler in your project, add the following line to your Gemfile and you're ready to roll.
 
-        `gem 'rubycoin'`
+        gem 'rubycoin'
 
 ## Using RubyCoin
 Using RubyCoin for generating addresses and private keys is extremely simple. Say if you'd want to generate a Bitcoin address, all you need to do is make a new Bitcoin address object like so:
