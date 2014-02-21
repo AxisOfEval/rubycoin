@@ -54,6 +54,7 @@ Also, complete test coverage will be neat. It is currently **absent**. However, 
 ## Authors
 
 - [Amol Hatwar](http://www.hatwar.org/)
+- [Girish Tryambake](http://www.tryambake.org/)
 
 ## License
 The code in this repository is released under the liberal MIT license. A copy can be found in the `LICENSE` file.
