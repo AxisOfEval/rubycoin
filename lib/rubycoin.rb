@@ -8,9 +8,14 @@ require_relative 'ruby_coin/base'
 module RubyCoin
 end
 
-RubyCoin.autoload :Bitcoin,  './ruby_coin/bitcoin'
-RubyCoin.autoload :Litecoin, './ruby_coin/litecoin'
-RubyCoin.autoload :Peercoin, './ruby_coin/peercoin'
+require_relative './ruby_coin/bitcoin'
+require_relative './ruby_coin/litecoin'
+require_relative './ruby_coin/peercoin'
+
+# RubyCoin.autoload :Bitcoin,  './ruby_coin/bitcoin'
+# RubyCoin.autoload :Litecoin, './ruby_coin/litecoin'
+# RubyCoin.autoload :Peercoin, './ruby_coin/peercoin'
+
 
 # Monkeypatch OpenSSL for utility methods
 module ::OpenSSL
