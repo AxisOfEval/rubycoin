@@ -27,11 +27,3 @@ module ::OpenSSL
     def self.bn2mpi(hex) BN.from_hex(hex).to_mpi; end
   end
 end
-
-# c = RubyCoin::Bitcoin::Address.new
-# puts c.secret
-# puts c.public_key
-# puts c.hash160
-# puts c.checksum
-# puts c.address
-# puts c.private_key
