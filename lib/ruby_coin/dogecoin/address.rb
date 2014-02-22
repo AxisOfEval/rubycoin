@@ -1,50 +1,37 @@
 module RubyCoin
   module Dogecoin
-    class Address < RubyCoin::Base
-      attr_reader :address, :hash160, :checksum
+    class Address < RubyCoin::Address
+      def initialize(*args)
+        super(CURVE_TYPE, *args)
 
-      def initialize(seed = CURVE_TYPE, *args)
-        super(seed, *args)
-
-        @hash160  = Digest::RMD160.hexdigest(
-          Digest::SHA256.digest(
-            [public_key].pack('H*')
-        ))
-
-        @checksum = Digest::SHA256.hexdigest(
-          Digest::SHA256.digest(
-            [network_byte + hash160].pack('H*')
-        ))[0...8]
-
-        @address  = number_to_base(
-          (network_byte + hash160 + checksum).to_i(16), ADDR_CHARS
-        )
+        curve.instance_variable_set(:@_pubkey_version, '1e')
+        curve.instance_variable_set(:@_prikey_version, '9e')
       end
 
-      def to_s
-        @address
+      def address
+        encode_address
+      end
+
+      def compressed_public_key
+        # TODO: Optimize y-coord parity checking
+        curve.public_key.y.to_i(16).even? ?
+          '02' + curve.public_key.x.rjust(32, '0') :
+          '03' + curve.public_key.x.rjust(32, '0')
       end
 
       def private_key
-        return @doge_key unless @doge_key == nil
+        key = compressed? ? @private_key + '01' : @private_key
+        hex = private_key_version + key
+        sum = checksum(hex)
 
-        hex_str   = private_key_version + @private_key
-        checksum  = Digest::SHA256.hexdigest(
-          Digest::SHA256.digest(
-            [hex_str].pack('H*')
-        ))[0...8]
-        @doge_key  = number_to_base(
-          (hex_str + checksum).to_i(16), ADDR_CHARS
-        )
+        number_to_base((hex + sum).to_i(16), ADDR_CHARS)
       end
 
-      protected
-        def network_byte
-          '1e'
-        end
-
-        def private_key_version
-          '9e'
+      private
+        def encode_address
+          hash = version_hash(public_key)
+          sum  = checksum(hash)
+          number_to_base((hash + sum).to_i(16), ADDR_CHARS)
         end
     end
   end

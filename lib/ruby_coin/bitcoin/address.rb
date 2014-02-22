@@ -12,6 +12,13 @@ module RubyCoin
         '1' + encode_address
       end
 
+      def compressed_public_key
+        # TODO: Optimize y-coord parity checking
+        curve.public_key.y.to_i(16).even? ?
+          '02' + curve.public_key.x.rjust(32, '0') :
+          '03' + curve.public_key.x.rjust(32, '0')
+      end
+
       def private_key
         key = compressed? ? @private_key + '01' : @private_key
         hex = private_key_version + key
