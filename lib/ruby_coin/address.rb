@@ -1,7 +1,7 @@
 require 'forwardable'
 
 module RubyCoin
-  class Base
+  class Address
     extend Forwardable
     attr_accessor :curve, :private_key, :public_key
 
@@ -27,7 +27,7 @@ module RubyCoin
     end
 
     def compressed?
-      false
+      true
     end
 
     def public_key

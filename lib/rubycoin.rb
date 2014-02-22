@@ -3,7 +3,7 @@ require 'digest/rmd160'
 require 'openssl'
 
 require_relative 'ruby_coin/version'
-require_relative 'ruby_coin/base'
+require_relative 'ruby_coin/address'
 
 module RubyCoin
 end
@@ -29,17 +29,3 @@ module ::OpenSSL
     def y; to_hex[66..130]; end
   end
 end
-
-btc = RubyCoin::Bitcoin::Address.new
-puts btc.address
-puts btc.private_key
-# puts
-# puts btc.instance_variable_get(:@public_key)
-# puts btc.public_key
-# puts
-# puts btc.curve.public_key.x
-# puts btc.curve.public_key.y
-# puts
-# puts btc.curve.public_key.x_new
-# puts btc.curve.public_key.y_new
-# puts btc.curve.public_key.to_hex
