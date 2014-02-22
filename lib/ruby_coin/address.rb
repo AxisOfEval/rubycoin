@@ -27,7 +27,7 @@ module RubyCoin
     end
 
     def compressed?
-      true
+      false
     end
 
     def public_key
