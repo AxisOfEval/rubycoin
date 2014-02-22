@@ -1,4 +1,5 @@
 # Changelog
+  - **v0.0.7** - Added Namecoin support
   - **v0.0.6** - Dogecoin gets compressed wallet support
   - **v0.0.5** - Added Dogecoin address generation capabilities
   - **v0.0.4** - Added Peercoin address generation capabilities
