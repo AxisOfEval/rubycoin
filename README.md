@@ -2,7 +2,10 @@
 RubyCoin **aims** to be the one library that rules them all crypto-currencies. Currently, only the following crypto-currencies are supported:
 
   1. Bitcoin
-  2. Lotecoin
+  2. Peercoin
+  3. Litecoin
+  4. Dogecoin
+  5. Namecoin
 
 However, adding support for other crypto-currencies is fairly simple and contributions and pull-requests are always welcome.
 
@@ -31,11 +34,11 @@ Work on compressed keys and addresses is currently in progress. Also, it is **li
 
 Currently, the primary goal is to be able to generate addresses for as many as crypto-currencies as possible. The main candidates are:
 
-  1. Litecoin
-  2. Peercoin
-  3. Dogecoin
+  1. ~~Litecoin~~
+  2. ~~Peercoin~~
+  3. ~~Dogecoin~~
   4. Mastercoin
-  5. Namecoin
+  5. ~~Namecoin~~
   6. Quark
   7. Feathercoin
   8. Primecoin
