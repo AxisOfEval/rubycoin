@@ -1,6 +1,6 @@
 module RubyCoin
   def self.version
-    Gem::Version.new '0.0.4'
+    Gem::Version.new '0.0.5'
   end
 
   module VERSION #:nodoc:
