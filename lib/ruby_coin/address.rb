@@ -1,6 +1,5 @@
 module RubyCoin
   class Address
-    extend Forwardable
     attr_accessor :curve, :private_key, :public_key
 
     def initialize(seed, *args)
