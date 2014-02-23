@@ -3,25 +3,19 @@ module RubyCoin
     class Address < RubyCoin::Address
       def initialize(*args)
         super(CURVE_TYPE, *args)
-
-        curve.instance_variable_set(:@_pubkey_version, '1e')
-        curve.instance_variable_set(:@_prikey_version, '9e')
       end
 
       def address
         encode_address
       end
 
-      def compressed_public_key
-        # TODO: Optimize y-coord parity checking
-        curve.public_key.y.to_i(16).even? ?
-          '02' + curve.public_key.x.rjust(32, '0') :
-          '03' + curve.public_key.x.rjust(32, '0')
+      def version_hash(hex)
+        PUBKEY_VER + hash160(hex)
       end
 
       def private_key
         key = compressed? ? @private_key + '01' : @private_key
-        hex = private_key_version + key
+        hex = PRIKEY_VER + key
         sum = checksum(hex)
 
         number_to_base((hex + sum).to_i(16), ADDR_CHARS)
