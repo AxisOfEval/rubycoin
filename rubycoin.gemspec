@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'rubycoin'
-  s.version     = '0.0.7'
+  s.version     = '0.0.7.1'
   s.date        = '2014-02-22'
   s.summary     = "One library to rule them all!"
   s.description = "Use multiple crypto-currencies with ease"
