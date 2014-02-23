@@ -13,6 +13,7 @@ require_relative 'ruby_coin/litecoin'
 require_relative 'ruby_coin/peercoin'
 require_relative 'ruby_coin/dogecoin'
 require_relative 'ruby_coin/namecoin'
+require_relative 'ruby_coin/quarkcoin'
 
 # Monkeypatch OpenSSL for utility methods
 module ::OpenSSL
