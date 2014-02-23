@@ -24,10 +24,6 @@ module ::OpenSSL
     def to_hex; to_i.to_s(16).rjust(64, '0'); end
   end
 
-  class PKey::EC
-    attr_reader :_pubkey_version, :_prikey_version
-  end
-
   class PKey::EC::Point
     def to_hex; to_bn.to_i.to_s(16).rjust(130, '0'); end
     def x; to_hex[2..65];   end
