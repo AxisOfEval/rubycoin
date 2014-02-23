@@ -1,4 +1,5 @@
 # Changelog
+  - **v0.0.9** - Added Primecoin support
   - **v0.0.8** - Added Feathercoin support
   - **v0.0.7** - Added Namecoin support
   - **v0.0.6** - Dogecoin gets compressed wallet support
