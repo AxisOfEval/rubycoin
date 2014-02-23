@@ -1,5 +1,3 @@
-require 'forwardable'
-
 module RubyCoin
   class Address
     extend Forwardable
@@ -15,15 +13,8 @@ module RubyCoin
 
     alias_method :secret, :private_key
 
-    def_delegator :curve, :_pubkey_version,  :public_key_version
-    def_delegator :curve, :_prikey_version,  :private_key_version
-
     def to_s
       address
-    end
-
-    def version_hash(hex)
-      public_key_version + hash160(hex)
     end
 
     def compressed?
