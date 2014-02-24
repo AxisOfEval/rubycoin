@@ -10,6 +10,7 @@ RubyCoin **aims** to be the one library that rules them all crypto-currencies. C
   7. Primecoin
   8. Megacoin
   9. Worldcoin
+  10. Vertcoin
 
 However, adding support for other crypto-currencies is fairly simple and contributions and pull-requests are always welcome.
 
@@ -51,7 +52,7 @@ Currently, the primary goal is to be able to generate addresses for as many as c
   11. Novacoin
   12. ~~Worldcoin~~
   13. Darkcoin
-  14. Vertcoin
+  14. ~~Vertcoin~~
   15. Maxcoin
 
 Once the address generation mechanism and API is fairly stable for these currencies, signing messages and interacting will respective block-chains over the network **may** be considered.
