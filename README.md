@@ -10,6 +10,7 @@ RubyCoin **aims** to be the one library that rules them all crypto-currencies. C
   7. Primecoin
   8. Megacoin
   9. Worldcoin
+  10. Quarkcoin
 
 However, adding support for other crypto-currencies is fairly simple and contributions and pull-requests are always welcome.
 
@@ -43,7 +44,7 @@ Currently, the primary goal is to be able to generate addresses for as many as c
   3. ~~Dogecoin~~
   4. Mastercoin
   5. ~~Namecoin~~
-  6. Quark
+  6. ~~Quark~~
   7. ~~Feathercoin~~
   8. ~~Primecoin~~
   9. ~~Megacoin~~
