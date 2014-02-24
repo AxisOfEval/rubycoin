@@ -1,10 +1,11 @@
 module RubyCoin
   class Address
-    attr_accessor :curve, :private_key, :public_key
+    attr_accessor :curve, :private_key, :public_key, :compressed
 
-    def initialize(seed, *args)
+    def initialize(seed, compressed=true, *args)
       self.curve  = ::OpenSSL::PKey::EC.new(seed, *args)
 
+      @compressed = compressed 
       curve.generate_key
       curve.private_key? ? init_private_key : nil_private_key
       curve.public_key?  ? init_public_key  : nil_public_key
@@ -17,11 +18,11 @@ module RubyCoin
     end
 
     def compressed?
-      false
+      @compressed
     end
 
     def public_key
-      case compressed?
+      case @compressed
       when true
         # TODO: Optimize y-coord parity checking
         curve.public_key.y.to_i(16).even? ?

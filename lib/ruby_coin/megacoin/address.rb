@@ -1,8 +1,8 @@
 module RubyCoin
   module Megacoin
     class Address < RubyCoin::Address
-      def initialize(*args)
-        super(CURVE_TYPE, *args)
+      def initialize(compressed=true, *args)
+        super(CURVE_TYPE, compressed, *args)
       end
 
       def address
