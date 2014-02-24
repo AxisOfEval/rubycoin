@@ -31,8 +31,3 @@ module ::OpenSSL
     def y; to_hex[66..130]; end
   end
 end
-
-q = RubyCoin::Quarkcoin::Address.new
-puts q
-puts q.private_key
-puts q.secret
