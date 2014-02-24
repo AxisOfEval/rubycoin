@@ -1,4 +1,5 @@
 # Changelog
+  - **v0.0.12** - Added compress key option support
   - **v0.0.11** - Added Worldcoin support
   - **v0.0.10** - Added Megacoin support
   - **v0.0.9** - Added Primecoin support
