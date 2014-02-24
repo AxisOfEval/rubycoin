@@ -9,7 +9,6 @@ module RubyCoin
         encode_address
       end
 
-
       def version_hash(hex)
         PUBKEY_VER + hash160(hex)
       end
