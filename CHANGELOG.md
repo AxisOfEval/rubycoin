@@ -1,4 +1,5 @@
 # Changelog
+  - **v0.0.11** - Added Novacoin support
   - **v0.0.10** - Added Megacoin support
   - **v0.0.9** - Added Primecoin support
   - **v0.0.8** - Added Feathercoin support
