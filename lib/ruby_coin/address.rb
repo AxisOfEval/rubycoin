@@ -1,10 +1,19 @@
 module RubyCoin
   class Address
+    include RubyCoin::Utilities
+
     attr_accessor :curve, :private_key, :public_key, :compressed
 
     def initialize(seed, *args)
-      options = extract_options(args)
-      @compressed = options[:compressed] ? options[:compressed] : true
+      options     = extract_options!(args)
+
+      case options[:format]
+      when :uncompressed
+        @compressed = false
+      else
+        @compressed = true
+      end
+
       self.curve  = ::OpenSSL::PKey::EC.new(seed, *args)
 
       curve.generate_key
@@ -19,11 +28,11 @@ module RubyCoin
     end
 
     def compressed?
-      @compressed
+      !!@compressed
     end
 
     def public_key
-      case @compressed
+      case compressed?
       when true
         # TODO: Optimize y-coord parity checking
         curve.public_key.y.to_i(16).even? ?
@@ -73,14 +82,6 @@ module RubyCoin
       def nil_public_key
         @address    = nil
         @public_key = nil
-      end
-
-      def extract_options(array)
-        if array.last.is_a?(Hash) && array.last.instance_of?(Hash)
-          array.pop
-        else
-          {}
-        end
       end
   end
 end

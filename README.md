@@ -30,12 +30,16 @@ Using RubyCoin for generating addresses and private keys is extremely simple. Sa
 require 'rubycoin'
 
 btc = RubyCoin::Bitcoin::Address.new
-btc.address       # 1LGsgrzfmj1683SrK8xJCn3w1Agbesfry8
-btc.private_key   # 5JjbQPrzfg3SoyGfLxhtHFff1x3tu9vFw6YDWxvDqWsB2D4RMTo
+btc.address       # 1HGvB7sN6XBhz7Sd2TSz4Yt1vCqWvZZbTD
+btc.private_key   # KzJCkE79nZ7Ha8W4NtyjdJNFpjghuFwq5AxjKkPWCauY3NNKvjny
 ```
 
+By default, compressed keys and addresses will be generated as they are the preferred standard. However, should you need uncompressed keys and addresses, all you need is to call new the following way:
+
+        RubyCoin::Bitcoin::Address.new(format: :uncompressed)
+
 ## Contributing
-Work on compressed keys and addresses is currently in progress. Also, it is **likely** that RubyCoin will support deterministic and hierarchial wallets in the future once the security implications are completely understood.
+It is **likely** that RubyCoin will support deterministic and hierarchial wallets in the future once the security implications are completely understood.
 
 Currently, the primary goal is to be able to generate addresses for as many as crypto-currencies as possible. The main candidates are:
 
@@ -57,7 +61,7 @@ Currently, the primary goal is to be able to generate addresses for as many as c
 
 Once the address generation mechanism and API is fairly stable for these currencies, signing messages and interacting will respective block-chains over the network **may** be considered.
 
-Also, complete test coverage will be neat. It is currently **absent**. However, you can check generated addresses and keys manually by using the tools at [Brainwallet](http://brainwallet.org/).
+Also, complete test coverage will be neat. It is currently **absent**. However, you can check generated addresses and keys manually by using the tools like [Brainwallet](http://brainwallet.org/).
 
 ## Authors
 

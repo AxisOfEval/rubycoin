@@ -2,11 +2,12 @@ require 'digest/sha2'
 require 'digest/rmd160'
 require 'openssl'
 
-require_relative 'ruby_coin/version'
-require_relative 'ruby_coin/address'
-
 module RubyCoin
 end
+
+require_relative 'ruby_coin/version'
+require_relative 'ruby_coin/utilities'
+require_relative 'ruby_coin/address'
 
 require_relative 'ruby_coin/bitcoin'
 require_relative 'ruby_coin/litecoin'
