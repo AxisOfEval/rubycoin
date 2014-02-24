@@ -17,6 +17,7 @@ require_relative 'ruby_coin/feathercoin'
 require_relative 'ruby_coin/primecoin'
 require_relative 'ruby_coin/megacoin'
 require_relative 'ruby_coin/worldcoin'
+require_relative 'ruby_coin/quarkcoin'
 
 # Monkeypatch OpenSSL for utility methods
 module ::OpenSSL
@@ -30,3 +31,8 @@ module ::OpenSSL
     def y; to_hex[66..130]; end
   end
 end
+
+q = RubyCoin::Quarkcoin::Address.new
+puts q
+puts q.private_key
+puts q.secret
