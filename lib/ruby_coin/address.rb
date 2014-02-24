@@ -2,10 +2,11 @@ module RubyCoin
   class Address
     attr_accessor :curve, :private_key, :public_key, :compressed
 
-    def initialize(seed, compressed=true, *args)
+    def initialize(seed, *args)
+      options = extract_options(args)
+      @compressed = options[:compressed] ? options[:compressed] : true
       self.curve  = ::OpenSSL::PKey::EC.new(seed, *args)
 
-      @compressed = compressed 
       curve.generate_key
       curve.private_key? ? init_private_key : nil_private_key
       curve.public_key?  ? init_public_key  : nil_public_key
@@ -72,6 +73,14 @@ module RubyCoin
       def nil_public_key
         @address    = nil
         @public_key = nil
+      end
+
+      def extract_options(array)
+        if array.last.is_a?(Hash) && array.last.instance_of?(Hash)
+          array.pop
+        else
+          {}
+        end
       end
   end
 end
